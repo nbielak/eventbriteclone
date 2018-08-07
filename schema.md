@@ -5,7 +5,6 @@
 |Col Name    |Data Type |Details
 |----------------|:--------:|:-------------------------:|
 |id              |integer   | not null, unique, primary
-|username        |string    | not null, unique, idx
 |email           |string    | not null, unique, idx
 |password digest |string    | not null
 |session token   |string    | not null, unique, idx
