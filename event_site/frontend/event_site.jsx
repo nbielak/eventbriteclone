@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createUser} from './util/user_api_util';
-import {login, logout} from './util/session_api_util';
+import configureStore from './store/store.js';
+import Root from './components/root';
 
 document.addEventListener("DOMContentLoaded", () => {
+  const store = configureStore();
   const root = document.getElementById('root');
-  ReactDOM.render(<img src="http://i.imgur.com/TDzDJgd.gif"/>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });

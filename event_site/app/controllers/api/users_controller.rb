@@ -24,11 +24,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def delete
-    @user = User.find(params[:id])
-    delete(@user)
-    redirect_to :root
-  end
 
   private
 
