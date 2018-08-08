@@ -1,10 +1,15 @@
 import React from 'react';
 
 class SessionForm extends React.Component {
-  constructor {
+  constructor(props) {
     super(props);
     this.state = this.props.user;
-    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  render() {
+    return(
+      <h1>{this.props.formType}</h1>
+    );
   }
 }
 

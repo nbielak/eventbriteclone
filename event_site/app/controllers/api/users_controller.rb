@@ -12,11 +12,9 @@ class Api::UsersController < ApplicationController
     @user = User.find_by_email(params[:email])
     found = nil
     if @user
-      found = "found"
-      render json: [found]
+      render json: {found: "found", email: params[:email]}
     else
-      found = "not found"
-      render json: [found]
+      render json: {found: "not found", email: params[:email]}
     end
   end
 

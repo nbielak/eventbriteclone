@@ -19,7 +19,7 @@ const receiveSessionErrors = errors => ({
   errors
 });
 
-const receiveFound = found => ({
+const receiveFound = (found) => ({
   type: RECEIVE_FOUND,
   found
 });
