@@ -9,14 +9,14 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      redirect_to "api/users/show"
+      render :show
     else
       render json: @user.errors.full_messages, status: 422
     end
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     if @user.update_attributes(user_params)
       redirect_to "api/users/show"
     else
@@ -33,6 +33,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :first_name, :last_name)
   end
 end

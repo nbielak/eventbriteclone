@@ -12,9 +12,10 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     @user = current_user
+
     if @user
       logout!
-      redirect_to :root
+      #TODO redirect somewhere
     else
       render json: ["No one logged in!"], status: 404
     end
