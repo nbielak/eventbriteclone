@@ -10,10 +10,13 @@ class Api::UsersController < ApplicationController
 
   def sign_in
     @user = User.find_by_email(params[:email])
+    found = nil
     if @user
-      render :sign_in
+      found = "found"
+      render json: [found]
     else
-      render :new
+      found = "not found"
+      render json: [found]
     end
   end
 
