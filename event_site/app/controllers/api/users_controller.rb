@@ -1,7 +1,20 @@
 class Api::UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
+  end
+
+  def sign_in
+    @user = User.find_by_email(params[:email])
+    if @user
+      render :sign_in
+    else
+      render :new
+    end
   end
 
   def create

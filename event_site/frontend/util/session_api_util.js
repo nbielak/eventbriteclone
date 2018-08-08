@@ -20,3 +20,11 @@ export const signup = user => (
       data: { user }
     })
 );
+
+export const findUserByEmail = email => (
+  $.ajax ({
+    method: 'GET',
+    url: `/api/users/${email}`
+    data: { email }
+  })
+);
