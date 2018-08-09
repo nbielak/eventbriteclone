@@ -19,7 +19,8 @@ const App = () => (
     <Switch>
       <Route path="/signin/login" component={LoginFormContainer} />
       <Route path="/signin/signup" component={SignupFormContainer} />
-      <Route path="/signin" component={SignInLandingContainer} />
+      <Route path="/signin" render={() => <SignInLandingContainer found={null} />} />
+      <Route exact path="/" />
     </Switch>
   </div>
 );

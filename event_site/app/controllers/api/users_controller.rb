@@ -9,12 +9,16 @@ class Api::UsersController < ApplicationController
   end
 
   def sign_in
-    @user = User.find_by_email(params[:email])
-    found = nil
-    if @user
-      render json: {found: "found", email: params[:email]}
+    if params[:email] == "undefined"
+      render json: ["Invalid email"], status: 401
     else
-      render json: {found: "not found", email: params[:email]}
+      @user = User.find_by_email(params[:email])
+      found = nil
+      if @user
+        render json: {found: "found", email: params[:email]}
+      else
+        render json: {found: "not found", email: params[:email]}
+      end
     end
   end
 
@@ -23,7 +27,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      render :show
+      render json: @user
     else
       render json: @user.errors.full_messages, status: 422
     end

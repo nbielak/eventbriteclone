@@ -32,7 +32,7 @@ class LookUpForm extends React.Component {
           <input type="submit" value="Get Started" />
         </form>
       </div>
-    )
+    );
   }
 }
 

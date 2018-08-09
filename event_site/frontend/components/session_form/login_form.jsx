@@ -1,10 +1,9 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -18,7 +17,7 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state)
+    this.props.login(this.state).then(() => this.props.history.replace('/'));
   }
 
   handleClick(e) {
@@ -29,6 +28,9 @@ class LoginForm extends React.Component {
   render() {
     if (this.props.found === null) {
       return (<Redirect to={{pathname:"/signin"}} />);
+    }
+    if (!this.props.email) {
+      return (<Redirect to="/signin" />);
     }
     return (
       <div>
@@ -57,4 +59,4 @@ class LoginForm extends React.Component {
 
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

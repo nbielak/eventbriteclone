@@ -22,27 +22,33 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state)
+    this.props.signup(this.state).then(() => this.props.history.replace('/'));
   }
 
   handleClick(e) {
     e.preventDefault();
-    this.setState({found: null});
-    return (<Redirect to="/signin" />);
+    this.props.resetFound(this.props.email);
   }
 
-
   render() {
+    if (this.props.found === null) {
+      return (<Redirect to="/signin" />);
+    }
+
+    if (!this.props.email || this.props.email === "undefined") {
+      return (<Redirect to="/signin" />);
+    }
+
     return (
       <div>
         <h1>Welcome</h1>
-        <div className="signup-form-email">
-          <label>Email Address</label>
-          <label>{this.props.email}
-            <button className="edit-email-button" onClick={this.handleClick}>Edit</button>
-          </label>
-        </div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
+          <div className="signup-form-email">
+            <label>Email Address</label>
+            <label>{this.props.email}
+              <button className="edit-email-button" onClick={this.handleClick}>Edit</button>
+            </label>
+          </div>
 
           <div className="signup-form-name">
             <label>First Name
