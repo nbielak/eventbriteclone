@@ -9,12 +9,15 @@ import {
 import SignInLandingContainer from './session_form/sign_in_landing_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
+import NavBar from './nav_bar/nav_bar';
 
 const App = () => (
   <div>
     <header>
-      <h1>EventSite</h1>
-      <img src="https://media.giphy.com/media/26uf6k9JD5KgtytnW/giphy.gif"/>
+      <Link className="logo" to="/">EventSite</Link>
+      <div className="header-search">
+      </div>
+      <NavBar />
     </header>
     <Switch>
       <Route path="/signin/login" component={LoginFormContainer} />

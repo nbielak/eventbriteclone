@@ -4,7 +4,6 @@ import {withRouter} from 'react-router-dom';
 class LookUpForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = this.props;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
