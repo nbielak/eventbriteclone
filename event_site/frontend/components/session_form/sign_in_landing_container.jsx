@@ -2,21 +2,23 @@ import React from 'react';
 import LookUpFormContainer from './look_up_form_container';
 import SignUpFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
+import { connect } from 'react-redux'
 
 class SignInLanding extends React.Component {
   constructor(props) {
     super(props);
     this.found = this.props.found;
     this.email = this.props.email;
+    this.form = this.form.bind(this);
   }
 
   form() {
-    if (this.found === "found") {
-      return (<LoginFormContainer email={this.email} />);
-    } else if (this.found === "not found") {
-      return (<SignUpFormContainer email={this.email} />);
+    if (this.props.found === "found") {
+      return (<LoginFormContainer email={this.props.email} />);
+    } else if (this.props.found === "not found") {
+      return (<SignUpFormContainer email={this.props.email} />);
     } else {
-      return (<LookUpFormContainer email={this.email} />);
+      return (<LookUpFormContainer email={''} />);
     }
   }
 
@@ -29,4 +31,16 @@ class SignInLanding extends React.Component {
   }
 }
 
-export default SignInLanding;
+const mapStateToProps = state => {
+  return {
+    email: state.session.lookUp.email,
+    found: state.session.lookUp.found
+  }
+};
+
+const mapDispatchToProps = dispatch => ({
+
+});
+
+
+export default connect(mapStateToProps, null)(SignInLanding);
