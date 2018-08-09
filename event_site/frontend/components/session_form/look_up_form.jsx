@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 class LookUpForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
     this.state = this.props;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,10 +22,10 @@ class LookUpForm extends React.Component {
   render () {
     return (
       <div>
-        <h1>LETS GET READY TO RUMBLE</h1>
+        <h1>Let's get started</h1>
         <form className="look-up-form" onSubmit={this.handleSubmit}>
           <label>Email Address
-            <input onChange={this.update()} type="text" value={this.state.email} />
+            <input onChange={this.update()} value={this.state.email || ''} placeholder="email"/>
           </label>
 
           <input type="submit" value="Get Started" />

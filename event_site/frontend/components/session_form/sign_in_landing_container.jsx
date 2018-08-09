@@ -1,6 +1,6 @@
 import React from 'react';
 import LookUpFormContainer from './look_up_form_container';
-import SignUpFormContainer from './signup_form_container';
+import SignupFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
 import { connect } from 'react-redux'
 
@@ -16,9 +16,9 @@ class SignInLanding extends React.Component {
     if (this.props.found === "found") {
       return (<LoginFormContainer email={this.props.email} />);
     } else if (this.props.found === "not found") {
-      return (<SignUpFormContainer email={this.props.email} />);
+      return (<SignupFormContainer email={this.props.email} />);
     } else {
-      return (<LookUpFormContainer email={''} />);
+      return (<LookUpFormContainer email='' />);
     }
   }
 
