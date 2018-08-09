@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       logout!
-      #TODO redirect somewhere
+      redirect_to :root
     else
       render json: ["No one logged in!"], status: 404
     end

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class SignupForm extends React.Component {
 
   componentDidMount() {
     this.setState({email: this.props.email})
+
   }
 
   update(field) {
@@ -20,11 +21,14 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     this.props.signup(this.state)
   }
 
   handleClick(e) {
-    
+    e.preventDefault();
+    this.setState({found: null});
+    return (<Redirect to="/signin" />);
   }
 
 
@@ -32,12 +36,13 @@ class SignupForm extends React.Component {
     return (
       <div>
         <h1>Welcome</h1>
+        <div className="signup-form-email">
+          <label>Email Address</label>
+          <label>{this.props.email}
+            <button className="edit-email-button" onClick={this.handleClick}>Edit</button>
+          </label>
+        </div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
-          <div className="signup-form-email">
-            <label>Email Address</label>
-            <label>{this.props.email}</label>
-            <button onClick={this.handleClick}>Edit</button>
-          </div>
 
           <div className="signup-form-name">
             <label>First Name

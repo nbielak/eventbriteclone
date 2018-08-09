@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 
 
 const mapStateToProps = state => ({
-  email: state.session.email,
-  found: state.session.found
+  email: state.session.lookUp.email,
+  found: state.session.lookUp.found
 });
 
 const mapDispatchToProps = dispatch => ({

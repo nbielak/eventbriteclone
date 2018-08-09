@@ -16,6 +16,7 @@ class LookUpForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     this.props.lookUpUser(this.state.email)
   }
 

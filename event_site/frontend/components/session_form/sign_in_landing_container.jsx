@@ -2,23 +2,24 @@ import React from 'react';
 import LookUpFormContainer from './look_up_form_container';
 import SignupFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class SignInLanding extends React.Component {
   constructor(props) {
     super(props);
-    this.found = this.props.found;
-    this.email = this.props.email;
     this.form = this.form.bind(this);
   }
 
+// redirect to route
+
   form() {
     if (this.props.found === "found") {
-      return (<LoginFormContainer email={this.props.email} />);
+      return (<Redirect to={{pathname: "/signin/login", email: this.props.email, found: this.props.found}}/>);
     } else if (this.props.found === "not found") {
-      return (<SignupFormContainer email={this.props.email} />);
+      return (<Redirect to={{pathname: "/signin/signup", email: this.props.email, found: this.props.found}}/>);
     } else {
-      return (<LookUpFormContainer email='' />);
+      return (<LookUpFormContainer email={this.props.email} found={null}/>)
     }
   }
 

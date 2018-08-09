@@ -19,10 +19,11 @@ const receiveSessionErrors = errors => ({
   errors
 });
 
-const receiveFound = (found) => ({
+export const receiveFound = (found) => ({
   type: RECEIVE_FOUND,
   found
 });
+
 
 
 export const login = currentUser => dispatch => (

@@ -1,10 +1,13 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+    debugger;
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   update_password() {
@@ -14,10 +17,19 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    this.state.login(this.state)
+    e.preventDefault();
+    this.props.login(this.state)
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.resetFound(this.props.email);
   }
 
   render() {
+    if (this.props.found === null) {
+      return (<Redirect to={{pathname:"/signin"}} />);
+    }
     return (
       <div>
         <h1>Welcome Back</h1>
@@ -25,7 +37,7 @@ class LoginForm extends React.Component {
           <div className="login-form-email">
             <label>Email address</label>
             <label>{this.props.email}
-              <button>edit</button>
+              <button className="edit-email-button" onClick={this.handleClick}>Edit</button>
             </label>
 
           </div>
