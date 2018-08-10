@@ -21,7 +21,7 @@ class LookUpForm extends React.Component {
       if (res.found.found === "found") {
         return this.props.history.push("/signin/login");
       } else if (res.found.found === "not found") {
-        return (<Redirect to={{pathname: "/signin/signup", email: res.email, found: res.found}}/>);
+        return this.props.history.push("/signin/signup");
       } else {
         return (<LookUpFormContainer email={res.found.email} found={null}/>)
       }
@@ -44,4 +44,4 @@ class LookUpForm extends React.Component {
   }
 }
 
-export default withRouter(LookUpForm);
+export default LookUpForm;

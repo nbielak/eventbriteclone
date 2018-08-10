@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -23,12 +23,13 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.signup(this.state).then(() => this.props.history.replace('/'));
+    this.props.signup(user).then(() => this.props.history.push('/'));
   }
 
   handleClick(e) {
     e.preventDefault();
     this.props.resetFound(this.props.email);
+    this.props.history.push('/signin');
   }
 
   render() {
@@ -36,13 +37,13 @@ class SignupForm extends React.Component {
     return (
       <div>
         <h1>Welcome</h1>
+        <div className="signup-form-email">
+          <label>Email Address</label>
+          <label>{this.props.email}
+            <button className="edit-email-button" onClick={this.handleClick}>Edit</button>
+          </label>
+        </div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
-          <div className="signup-form-email">
-            <label>Email Address</label>
-            <label>{this.props.email}
-              <button className="edit-email-button" onClick={this.handleClick}>Edit</button>
-            </label>
-          </div>
 
           <div className="signup-form-name">
             <label>First Name
@@ -68,4 +69,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SignupForm;
+export default withRouter(SignupForm);

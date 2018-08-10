@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
 import Root from './components/root';
-import { lookUpUser } from './actions/session_actions';
+import { lookUpUser, logout} from './actions/session_actions';
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   const root = document.getElementById('root');
+  window.logout = logout;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.lookUpUser = lookUpUser;
