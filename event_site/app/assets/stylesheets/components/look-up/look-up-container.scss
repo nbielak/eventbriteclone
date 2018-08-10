@@ -61,7 +61,7 @@ div {
                 font-family: "Benton Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
                 font-weight: bolder;
                 font-size: 55px;
-                margin: 15px 30px 0 0;
+                margin: 10px 30px 0 0;
               }
 
               .look-up-logo-s {
@@ -69,7 +69,7 @@ div {
                 font-family: "Benton Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
                 font-weight: bolder;
                 font-size: 55px;
-                margin: 5px 5px 0 25px;
+                margin: 9px 5px 0 25px;
               }
             }
           }
@@ -92,7 +92,100 @@ div {
         .look-up-form {
           margin: 0;
           padding: 0;
-          
+
+          .look-up-form-input-container {
+            padding-top: 16px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 400;
+
+            .look-up-form-input-label-container{
+              text-align: left;
+              margin-bottom: 4px;
+              display: block;
+
+              .look-up-form-label {
+                color: #363a43;
+                text-align: left;
+                font-size: 14px;
+                line-height: 22px;
+                font-weight: 400;
+                letter-spacing: 0;
+              }
+            }
+            .look-up-form-input-container {
+              display: block;;
+              margin: 0;
+              padding: 1px;
+              position: relative;
+              width: 100%;
+              height: 40px;
+              background-color: #d2d6df;
+              border-radius: 2px;
+              box-sizing: border-box;
+              color: #45494e;
+              font-size: 1rem;
+              line-height: 22px;
+
+              .look-up-form-input {
+                display: block;
+                height: 100%;
+                width: 100%;
+                outline: none;
+                border: 0;
+                padding: 8px 12px 9px;
+                box-sizing: border-box;
+                background-color: #fff;
+                border-radius: 2px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                padding-left: 16px;
+                line-height: normal;
+                cursor: text;
+                font-size: 14px;
+              }
+            }
+          }
+          .look-up-form-button-container {
+            margin-bottom: 10px;
+
+            .look-up-form-button {
+              transition: all .4s cubic-bezier(.4,0,.3,1);
+              cursor: pointer;
+              border-radius: 40px;
+              border: 1px solid transparent;
+              letter-spacing: .2px;
+              font-weight: 600;
+              line-height: 22px;
+              text-decoration: none;
+              text-align: center;
+              padding: 1 31 0 31;
+              height: 40px;
+              position: relative;
+              transform: translateZ(0);
+              background: #f6682f;
+              color: #fff;
+              width: 100%;
+              box-sizing: border-box;
+              display: block;
+              font-size: 14px;
+
+              &:hover {
+                background: #E95699
+              }
+
+              &:active {
+                background: lightgrey;
+              }
+            }
+
+          }
+          .or {
+            margin-left: 125px;
+            margin-bottom: 10px;
+          }
         }
       }
     }

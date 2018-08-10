@@ -47,11 +47,24 @@ class LookUpForm extends React.Component {
             </div>
           </div>
           <form className="look-up-form" onSubmit={this.handleSubmit}>
-            <label>Email Address
-              <input onChange={this.update()} value={this.state.email || ''} placeholder="email"/>
-            </label>
+            <div className="look-up-form-input-container">
+              <div className="look-up-form-input-label-container">
+                <label className="look-up-form-label">Email Address</label>
+              </div>
+              <div className="look-up-form-input-container">
+                <input className="look-up-form-input" onChange={this.update()} value={this.state.email || ''} placeholder="Enter email"/>
+              </div>
 
-            <input type="submit" value="Get Started" />
+            </div>
+            <div className="look-up-form-button-container">
+              <input className="look-up-form-button" type="submit" value="Get Started" />
+            </div>
+
+            <p className="or"> ----or---- </p>
+
+            <div className="look-up-form-button-container">
+              <input className="look-up-form-button" type="submit" value="Demo Login" />
+            </div>
           </form>
         </div>
       </div>
