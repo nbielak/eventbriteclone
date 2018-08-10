@@ -13,7 +13,7 @@ import LookUpFormContainer from './session_form/look_up_form_container';
 import { AuthRoute, EmailAuthRoute } from '../util/route_util';
 
 const App = () => (
-  <div>
+  <div className="main-content">
     <header>
       <div className="logo" >
         <Link className="logo-link" to="/">EventSite</Link>
@@ -23,12 +23,14 @@ const App = () => (
       </div>
       <NavBarContainer />
     </header>
-    <Switch>
-      <EmailAuthRoute exact path="/signin/login" component={LoginFormContainer} />
-      <EmailAuthRoute exact path="/signin/signup" component={SignupFormContainer} />
-      <AuthRoute exact path="/signin" component={LookUpFormContainer}/>
-      <Route exact path="/" />
-    </Switch>
+    <div className="main-container">
+      <Switch>
+        <EmailAuthRoute exact path="/signin/login" component={LoginFormContainer} />
+        <EmailAuthRoute exact path="/signin/signup" component={SignupFormContainer} />
+        <AuthRoute exact path="/signin" component={LookUpFormContainer}/>
+        <Route exact path="/" />
+      </Switch>
+    </div>
   </div>
 );
 
