@@ -4,7 +4,7 @@ import { signup, receiveFound } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => ({
-  user: state.entities.user,
+  user: state.entities.users[state.session.currentUser],
   email: state.session.lookUp.email,
   found: state.session.lookUp.found,
   errors: state.errors

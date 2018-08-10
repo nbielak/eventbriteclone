@@ -17,7 +17,8 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state).then(() => this.props.history.replace('/'));
+    const user = Object.assign({}, this.state);
+    this.props.login(user).then(() => this.props.history.push('/'));
   }
 
   handleClick(e) {
@@ -26,12 +27,6 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    if (this.props.found === null) {
-      return (<Redirect to={{pathname:"/signin"}} />);
-    }
-    if (!this.props.email) {
-      return (<Redirect to="/signin" />);
-    }
     return (
       <div>
         <h1>Welcome Back</h1>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import LookUpFormContainer from './look_up_form_container';
 
 class LookUpForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,15 @@ class LookUpForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.lookUpUser(this.state.email)
+    this.props.lookUpUser(this.state.email).then(res => {
+      if (res.found.found === "found") {
+        return this.props.history.push("/signin/login");
+      } else if (res.found.found === "not found") {
+        return (<Redirect to={{pathname: "/signin/signup", email: res.email, found: res.found}}/>);
+      } else {
+        return (<LookUpFormContainer email={res.found.email} found={null}/>)
+      }
+    })
   }
 
   render () {

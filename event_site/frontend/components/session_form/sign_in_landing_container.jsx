@@ -13,16 +13,6 @@ class SignInLanding extends React.Component {
 
 // redirect to route
 
-  form() {
-    if (this.props.found === "found") {
-      return (<Redirect to={{pathname: "/signin/login", email: this.props.email, found: this.props.found}}/>);
-    } else if (this.props.found === "not found") {
-      return (<Redirect to={{pathname: "/signin/signup", email: this.props.email, found: this.props.found}}/>);
-    } else {
-      return (<LookUpFormContainer email={this.props.email} found={null}/>)
-    }
-  }
-
   render() {
     return (
       <div>

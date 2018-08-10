@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => ({
   email: state.session.lookUp.email,
   found: state.session.lookUp.found,
-  user: state.session.currentUser,
+  user: state.entities.users[state.session.currentUser],
   errors: state.errors
 });
 

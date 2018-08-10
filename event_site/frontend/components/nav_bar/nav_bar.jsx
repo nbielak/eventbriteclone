@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const navBar = ({currentUser, logout}) => {
+const NavBar = ({currentUser, logout}) => {
+  debugger;
   const loggedInNavBar = () => (
     <nav className = "nav-bar">
       <Link className="nav-bar-link" to="/">browse events</Link>
-      <Link className="nav-bar-link" to="/signin">{currentUser.first_name}</Link>
+      <Link className="nav-bar-link" to="/">{currentUser.id.first_name}</Link>
       <Link className="nav-bar-link" to="/">create event</Link>
     </nav>
   );
@@ -19,7 +20,7 @@ const navBar = ({currentUser, logout}) => {
     </nav>
   );
 
-  return currentUser ? loggedInNavBar() : loggedOutNavBar();
+  return currentUser.id ? loggedInNavBar() : loggedOutNavBar();
 };
 
-export default navBar;
+export default NavBar;

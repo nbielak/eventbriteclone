@@ -22,6 +22,7 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const user = Object.assign({}, this.state);
     this.props.signup(this.state).then(() => this.props.history.replace('/'));
   }
 
@@ -31,13 +32,6 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    if (this.props.found === null) {
-      return (<Redirect to="/signin" />);
-    }
-
-    if (!this.props.email || this.props.email === "undefined") {
-      return (<Redirect to="/signin" />);
-    }
 
     return (
       <div>
