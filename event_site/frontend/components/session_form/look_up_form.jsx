@@ -7,6 +7,7 @@ class LookUpForm extends React.Component {
     super(props);
     this.state = this.props;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   update() {
@@ -26,6 +27,11 @@ class LookUpForm extends React.Component {
         return (<LookUpFormContainer email={res.found.email} found={null}/>)
       }
     })
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.lookUpUser("demo@demo.com").then(res => this.props.history.push("/signin/login"))
   }
 
   render () {
@@ -52,7 +58,7 @@ class LookUpForm extends React.Component {
                 <label className="look-up-form-label">Email Address</label>
               </div>
               <div className="look-up-form-input-container">
-                <input className="look-up-form-input" onChange={this.update()} value={this.state.email || ''} placeholder="Enter email"/>
+                <input type="email" className="look-up-form-input" onChange={this.update()} value={this.state.email || ''} placeholder="Enter email"/>
               </div>
 
             </div>
@@ -63,7 +69,7 @@ class LookUpForm extends React.Component {
             <p className="or"> ----or---- </p>
 
             <div className="look-up-form-button-container">
-              <input className="look-up-form-button" type="submit" value="Demo Login" />
+              <input onClick={this.handleClick} className="look-up-form-button" type="submit" value="Demo Login" />
             </div>
           </form>
         </div>

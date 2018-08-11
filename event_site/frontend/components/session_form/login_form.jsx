@@ -7,6 +7,7 @@ class LoginForm extends React.Component {
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update_password() {
@@ -25,6 +26,14 @@ class LoginForm extends React.Component {
     e.preventDefault();
     this.props.resetFound(this.props.email);
     this.props.history.push('/signin');
+  }
+
+  handleDemo() {
+    if (`${this.props.email}` === "demo@demo.com") {
+      return "123456";
+    } else {
+      return "";
+    }
   }
 
   render() {
@@ -49,7 +58,7 @@ class LoginForm extends React.Component {
             <div className="look-up-form-input-container">
               <label className="look-up-form-input-label">Email address
                 <div className="email-wrapper">
-                  <p className="static-email">{this.props.email}</p>
+                  <p className="static-email">{`${this.props.email}.com`}</p>
                   <div className="static-email-button">
                     <span className="static-email-button-icon-wrapper">
                       <button className="static-email-button-icon" onClick={this.handleClick}>
@@ -72,7 +81,7 @@ class LoginForm extends React.Component {
                   <label className="look-up-form-label">Password</label>
                 </div>
                 <div className="look-up-form-input-container">
-                    <input className="look-up-form-input" type="password" onChange={this.update_password()} />
+                    <input value={this.handleDemo()}className="look-up-form-input" type="password" onChange={this.update_password()} />
                 </div>
               </div>
 
