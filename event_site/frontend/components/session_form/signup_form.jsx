@@ -45,10 +45,10 @@ class SignupForm extends React.Component {
               </span>
             </div>
             <div className="look-up-title-container">
-              <h1>Welcome Back</h1>
+              <h1>Welcome</h1>
             </div>
             <div className="look-up-subheader-container">
-              <p>Please enter your password to log in.</p>
+              <p>Create an account.</p>
             </div>
           </div>
           <div className="look-up-form">
@@ -74,23 +74,38 @@ class SignupForm extends React.Component {
             </div>
             <form onSubmit={this.handleSubmit}>
 
-              <div className="signup-form-name">
-                <label>First Name
-                  <input type="text" onChange={this.update('first_name')}/>
-                </label>
-
-                <label>Last Name
-                  <input type="text" onChange={this.update('last_name')}/>
-                </label>
-              </div>
-
               <div className="look-up-form-input-container">
-                <div className="look-up-form-input-label-container">
-                  <label className="look-up-form-label">Password</label>
+                <div className="signup-form-name">
+                  <div className="first-name-wrapper">
+                    <div className="first-name-label-wrapper">
+                      <label className="first-name-label">First Name</label>
+                    </div>
+
+                    <div className="first-name-input-wrapper">
+                      <input className="first-name-input" type="text" onChange={this.update('first_name')}/>
+                    </div>
+                  </div>
+
+                  <div className="first-name-wrapper">
+                    <div className="first-name-label-wrapper">
+                      <label className="first-name-label">Last Name</label>
+                    </div>
+
+                    <div className="first-name-input-wrapper">
+                      <input className="first-name-input" type="text" onChange={this.update('last_name')}/>
+                    </div>
+                  </div>
                 </div>
-                <div className="look-up-form-input-container">
-                    <input className="look-up-form-input" type="password" onChange={this.update('password')} />
+
+                <div>
+                  <div className="look-up-form-input-label-container">
+                    <label className="look-up-form-label">Password</label>
+                  </div>
+                  <div className="look-up-form-input-container">
+                      <input className="look-up-form-input" type="password" onChange={this.update('password')} />
+                  </div>
                 </div>
+
               </div>
 
               <div className="look-up-form-button-container">
